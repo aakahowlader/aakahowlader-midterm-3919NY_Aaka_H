@@ -23,6 +23,7 @@ public class Numbers {
 	public static void main(String[] args) throws Exception {
 		
 		int [] num = new int[1000000];
+		//1 million milli seconds
 		storeRandomNumbers(num);
 		ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
 		//Selection Sort
@@ -33,6 +34,7 @@ public class Numbers {
         connectToSqlDB.insertDataFromArrayToSqlTable(num, "selection_sort", "SortingNumbers");
         List<String> numbers = connectToSqlDB.readDataBase("selection_sort", "SortingNumbers");
         printValue(numbers);
+        
 		int n = num.length;
 		randomize (num, n);
 		//Insertion Sort
@@ -41,17 +43,58 @@ public class Numbers {
 		System.out.println("Total Execution Time of " + num.length + " numbers in Insertion Sort take: " + insertionSortExecutionTime + " milli sec");
 
 		//By following above, Continue for rest of the Sorting Algorithm....
+		
+		int n= num.length 
+			randomize (num,n);
+		algo.insertionSort(num);
+		long insertionSortExecutionTime= algo.executionTime; 
+		System.out.println("The total execute time is" + num.length+ "numbers take"+ insertionSortExecutionTime+ "milli seconds");
+		
+		//continuing the rest 
+		
+		storeRandomNumbers(num);
+		
+		randomize (num, n);
+		
+		//Heap sort 
+		
+		randomize (num, n);
+		
+		algo.heapSort(num);
+		long heapSortExecutionTime= algo.executionTime;
+		System.out.println("The total execution time is" + num.length + "numbers take" + heapSortExecutionTime + "milli seconds");
+		
+		//Bubble sort 
+		
+		algo.bubbleSort(num);
+		long bubbleSortExecutionTime= algo.execution.Time;
+		System.out.println("The total execution time is"+ num.length + "numbers take"+ bubbleSortExecutionTime + "milli seconds");
+		
+		//Bucket Sort 
+		
+		randomize (num, 1000000);
+		System.out.println("The total execution time is" + num.length + "numbers take:" + algo.executionTime + "milli seconds");
+		
+		//Quick Sort 
+		
+		randomize (num, n);
+		algo.quickSort(num, 0, n-1);
+		long quickSortExecutionTime = algo.executionTime;
+		
+		System.out.println("The total execution time is" + num.length + "numbers take:" + quickSortExecutionTime + "milli seconds");
 
 
-
-
-
-
-
-
-
+		//Shell Sort 
+		
+		algo.shellSort(num);
+		long shellSortExecutionTime = algo.executionTime; 
+		System.out.println("The total execution time is" +  num.length + "numbers take:" + shellSortExecutionTime + "milli seconds");
+ );
+		
 		//Come to conclusion about which Sorting Algo is better in given data set.
 
+ //	Quick sort is the best method becuase it is faster.
+ 
 	}
 
 	public static void storeRandomNumbers(int [] num){
